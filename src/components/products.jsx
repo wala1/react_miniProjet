@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, Col, Container, Row } from 'react-bootstrap';
-import { getallProducts } from '../service/api';
+import { getallProducts , deleteProduct } from '../service/api';
+import { useNavigate } from "react-router-dom";
+
 import prod from "../products.json";
 import Product from './product';
 function Products() {
     const [showAlert , setShowAlert]=useState(false);
     const [showGreeting , setShowGreeting]=useState(false);
     const [products , setProducts] = useState([]);
+    const navigate = useNavigate();
+
    
     // const [qte , setQte] = useState(0);
     const buy = (produit) => {
@@ -19,6 +23,16 @@ function Products() {
         },2000);
        
     }
+    const deleteProd = async (id) => {
+        const result = window.confirm("Are you sure you want to delete?");
+      if (result) {
+        await deleteProduct(id);
+        getallProducts();
+        navigate("/products/");
+    
+    }
+      }
+      
     useEffect(() => {
         getallProducts().then(products => setProducts(products));
         setShowGreeting(true);
@@ -46,7 +60,7 @@ function Products() {
                 {
                     products.map((p , index) => (
                         <Col style={{margin : '1rem'}} key={index} lg={3}>
-                            <Product  product={p}  onBuy={buy} />
+                            <Product  product={p}  onBuy={buy} deleteProd={deleteProd} />
                         </Col>
 
                     ))
