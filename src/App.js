@@ -1,13 +1,7 @@
 import './App.css';
 import React from 'react';
-import Products from './components/products';
-import { Route , Routes } from 'react-router-dom';
-import NotFound from './components/NotFound';
-import Users from './components/users';
-import NavBar from './components/NavBar';
-import ProductDetail from './components/ProductDetail';
-import AddProduct from './components/AddProduct';
-import UpdateProduct from './components/UpdateProduct';
+import Products from './ClassComponents/Products';
+;
 
 
 function App() {
@@ -18,12 +12,12 @@ function App() {
 
   return (
     <>
-    <NavBar></NavBar>
+     {/*<NavBar></NavBar>
     <Routes>
         <Route path="/products"   >
             <Route index element={<Products />}/>
-            {/* <Route path=':name' element={<ProductDetail />}/> */}
-            {/* <Route path="/add" element={<AddProduct/>}/> */}
+            <Route path=':name' element={<ProductDetail />}/>
+            <Route path="/add" element={<AddProduct/>}/>
             <Route path=':id' element={<ProductDetail />} />
         </Route>
         <Route path="/products/add" element={<AddProduct />}></Route>
@@ -31,11 +25,13 @@ function App() {
 
         <Route path="/users" element={<Users />}></Route>
         <Route path="*" element={<NotFound />}></Route>
-    </Routes>
+  </Routes>*/}
+  <Products/>
     
         
     
-    {/* <Products /> */}
+  
+    
     </>
    
   );
