@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
-import Products from './ClassComponents/Products';
-;
+import Products from './FunctionalComponents/Products';
+import Product from './FunctionalComponents/Product';
 
 
 function App() {
